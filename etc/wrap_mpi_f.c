@@ -5,6 +5,10 @@
  *
  */
 
+#ifdef HAVE_FUNC_ATTRIBUTE_WEAK
+__FRET__ __attribute__((weak)) p__FFNAME__(__FPARAMS__);
+#endif
+
 __FRET__ __FFNAME__(__FPARAMS__)
 {
   double tstart, tstop;
