@@ -10,6 +10,7 @@ sinclude(m4/ax_mpi.m4)
 sinclude(m4/ipm_underscore.m4)
 sinclude(m4/ipm_mpistatuscount.m4)
 sinclude(m4/ipm_hostdetection.m4)
+sinclude(m4/ax_gcc_func_attribute.m4)
 
 dnl CRAY is not the default
 CRAY=0    
@@ -37,6 +38,9 @@ AC_CONFIG_HEADERS(config.h)
 
 AX_IPM_UNDERSCORE
 AX_IPM_MPISTATUSCOUNT
+
+dnl check for attribute support
+AX_GCC_FUNC_ATTRIBUTE([weak])
 
 if test "x$CRAY" = "x0"; then
    CC=$MPICC
@@ -273,7 +277,6 @@ fi
 )
 
 AM_CONDITIONAL([ENABLE_PARSER], [test "$enable_ipm_parser" = yes])
-
 
 AC_CONFIG_FILES([
 Makefile
