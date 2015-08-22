@@ -163,7 +163,9 @@ __CRET__ __CFNAME__(__CPARAMS__)
     return rv;
   }
 
-  IPM___CFNAME__(__CARGS__, tstart, tstop);
+  if( ipm_in_fortran_pmpi==IPM_NOT_IN_FORTRAN_PMPI ) {
+    IPM___CFNAME__(__CARGS__, tstart, tstop);
+  }
  
   return rv;
 }
